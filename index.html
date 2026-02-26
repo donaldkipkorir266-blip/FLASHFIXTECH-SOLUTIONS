@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLASHFIXTECHSOLUTIONS | Digital Services</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2563eb', // Blue
+                        secondary: '#1e40af', // Darker Blue
+                        accent: '#f59e0b', // Amber
+                        dark: '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Animations and Utilities */
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        .slide-up { animation: slideUp 0.6s ease-out; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Hover Image Zoom */
+        .img-hover-zoom {
+            overflow: hidden;
+        }
+        .img-hover-zoom img {
+            transition: transform .5s ease;
+        }
+        .img-hover-zoom:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Active Nav Link */
+        .nav-link.active {
+            color: #2563eb;
+            font-weight: 600;
+        }
+        
+        /* Hide scrollbar for clean look in galleries */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <header class="fixed w-full top-0 z-50 glass shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#home" class="font-heading font-bold text-2xl tracking-tighter text-dark">
+                        FLASHFIX<span class="text-primary">TECH</span>SOLUTIONS
+                    </a>
+                </div>
+                
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="nav-link text-gray-600 hover:text-primary transition">Home</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-primary transition">About</a>
+                    <a href="#services" class="nav-link text-gray-600 hover:text-primary transition">Services</a>
+                    <a href="#portfolio" class="nav-link text-gray-600 hover:text-primary transition">Portfolio</a>
+                    <a href="#websites" class="nav-link text-gray-600 hover:text-primary transition">Buy Websites</a>
+                    <a href="#blog" class="nav-link text-gray-600 hover:text-primary transition">Blog</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-primary transition">Contact</a>
+                    <a href="#booking" class="bg-primary text-white px-5 py-2 rounded-full font-semibold hover:bg-secondary transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Book Now</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Nav Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full left-0 border-t">
+            <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col">
+                <a href="#home" class="mobile-nav-link block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Home</a>
+                <a href="#about" class="mobile-nav-link block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">About</a>
+                <a href="#services" class="mobile-nav-link block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Services</a>
+                <a href="#portfolio" class="mobile-nav-link block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Portfolio</a>
+                <a href="#websites" class="mobile-nav-link block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Buy Websites</a>
+                <a href="#blog" class="mobile-nav-link block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Blog</a>
+                <a href="#contact" class="mobile-nav-link block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Contact</a>
+                <a href="#booking" class="mobile-nav-link block mt-4 px-3 py-3 bg-primary text-white rounded-md text-center font-bold">Book Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main id="app-content" class="flex-grow pt-20 fade-in">
+        <!-- Content injected by JS -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-16 pb-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <h2 class="font-heading font-bold text-2xl tracking-tighter mb-4">FLASHFIX<span class="text-primary">TECH</span>SOLUTIONS</h2>
+                    <p class="text-gray-400 mb-6 max-w-sm">Premium digital services including web design, graphic design, social media management, and complete IT solutions.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://wa.me/254705305516" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-500 transition"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-500 transition"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#services" class="hover:text-white transition">Services</a></li>
+                        <li><a href="#portfolio" class="hover:text-white transition">Portfolio</a></li>
+                        <li><a href="#websites" class="hover:text-white transition">Websites for Sale</a></li>
+                        <li><a href="#testimonials" class="hover:text-white transition">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-phone mr-2 text-primary"></i> +254 705 305 516</li>
+                        <li><i class="fas fa-envelope mr-2 text-primary"></i> info@flashfixtech.com</li>
+                        <li><i class="fas fa-map-marker-alt mr-2 text-primary"></i> Nairobi, Kenya</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">© 2026 FLASHFIXTECHSOLUTIONS. All rights reserved.</p>
+                <a href="#admin" class="text-gray-700 hover:text-gray-400 text-xs mt-4 md:mt-0 transition"><i class="fas fa-lock"></i> Admin Portal</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // --- WHATSAPP CONFIG ---
+        const WA_NUMBER = "254705305516";
+
+        // --- STATE MANAGEMENT (Simulated Database via LocalStorage) ---
+        const defaultData = {
+            services: [
+                { id: 's1', title: 'Website Design', icon: 'fa-laptop-code', desc: 'Modern, responsive, and SEO-friendly websites tailored to your brand.' },
+                { id: 's2', title: 'Graphic Design', icon: 'fa-paint-brush', desc: 'Stunning logos, posters, flyers, and branding materials.' },
+                { id: 's3', title: 'Video & Photo Editing', icon: 'fa-film', desc: 'Professional post-production to make your media stand out.' },
+                { id: 's4', title: 'Social Media Management', icon: 'fa-share-nodes', desc: 'Grow your audience with engaging content and strategy.' }
+            ],
+            portfolio: [
+                { id: 'p1', title: 'E-Commerce App Redesign', category: 'UI/UX Design', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800', desc: 'A complete overhaul of an online shopping experience.' },
+                { id: 'p2', title: 'Corporate Branding', category: 'Graphic Design', image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800', desc: 'Logo and stationery design for a tech startup.' }
+            ],
+            websitesForSale: [
+                { id: 'w1', title: 'Premium E-Commerce Store', price: '45000', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800', desc: 'Fully functional online store ready for dropshipping. Includes payment gateway integration.' }
+            ],
+            testimonials: [
+                { id: 't1', name: 'Sarah W.', review: 'FLASHFIXTECH transformed our online presence. Our new website is beautiful and fast.', rating: 5 },
+                { id: 't2', name: 'John K.', review: 'Excellent poster designs for our event. Very professional and delivered on time.', rating: 5 }
+            ],
+            blog: [
+                { id: 'b1', title: 'The Importance of a Fast Website in 2026', date: 'Oct 15, 2025', snippet: 'Why speed matters for SEO and user retention...', content: 'Full article content here...' }
+            ],
+            orders: [] // Stores submitted bookings/orders locally for admin
+        };
+
+        // Initialize state
+        function initDB() {
+            if (!localStorage.getItem('ffts_db')) {
+                localStorage.setItem('ffts_db', JSON.stringify(defaultData));
+            }
+        }
+        
+        function getDB() {
+            return JSON.parse(localStorage.getItem('ffts_db'));
+        }
+
+        function saveDB(data) {
+            localStorage.setItem('ffts_db', JSON.stringify(data));
+        }
+
+        initDB();
+
+        // --- UTILITIES ---
+        
+        // Advanced Image compression to base64 to prevent LocalStorage overflow
+        function compressImage(file, callback) {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function(event) {
+                const img = new Image();
+                img.src = event.target.result;
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    const MAX_WIDTH = 800;
+                    const MAX_HEIGHT = 800;
+                    let width = img.width;
+                    let height = img.height;
+
+                    if (width > height) {
+                        if (width > MAX_WIDTH) {
+                            height *= MAX_WIDTH / width;
+                            width = MAX_WIDTH;
+                        }
+                    } else {
+                        if (height > MAX_HEIGHT) {
+                            width *= MAX_HEIGHT / height;
+                            height = MAX_HEIGHT;
+                        }
+                    }
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+                    // Compress to 70% quality JPEG
+                    const dataUrl = canvas.toDataURL('image/jpeg', 0.7);
+                    callback(dataUrl);
+                }
+            };
+        }
+
+        function generateId() {
+            return Math.random().toString(36).substr(2, 9);
+        }
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES', minimumFractionDigits: 0 }).format(amount);
+        }
+
+        function buildWaLink(text) {
+            return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+        }
+
+        // --- UI NAVIGATION & ROUTING ---
+        const appContent = document.getElementById('app-content');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        function updateNavState(hash) {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === hash) {
+                    link.classList.add('active');
+                }
+            });
+            window.scrollTo(0, 0);
+        }
+
+        function router() {
+            let hash = window.location.hash || '#home';
+            updateNavState(hash);
+            
+            // Extract parameters if any (e.g. #booking?service=s1)
+            let path = hash;
+            let query = '';
+            if(hash.includes('?')) {
+                [path, query] = hash.split('?');
+            }
+
+            appContent.innerHTML = ''; // Clear current
+            appContent.className = 'flex-grow pt-20 fade-in'; // reset animation
+
+            switch (path) {
+                case '#home': renderHome(); break;
+                case '#about': renderAbout(); break;
+                case '#services': renderServices(); break;
+                case '#portfolio': renderPortfolio(); break;
+                case '#websites': renderWebsites(); break;
+                case '#booking': renderBooking(query); break;
+                case '#testimonials': renderTestimonials(); break;
+                case '#contact': renderContact(); break;
+                case '#blog': renderBlog(); break;
+                case '#admin': renderAdminLogin(); break;
+                case '#admin-dashboard': renderAdminDashboard(); break;
+                default: renderHome(); break;
+            }
+        }
+
+        window.addEventListener('hashchange', router);
+
+        // --- VIEW RENDERERS ---
+
+        // 1. HOME
+        function renderHome() {
+            const db = getDB();
+            const featuredServices = db.services.slice(0, 3);
+            const html = `
+                <!-- Hero Section -->
+                <section class="relative bg-dark text-white overflow-hidden">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80" alt="Background" class="w-full h-full object-cover">
+                    </div>
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-24 md:py-32 flex flex-col items-center text-center slide-up">
+                        <span class="text-accent font-semibold tracking-wider uppercase mb-4 block">Elevate Your Brand</span>
+                        <h1 class="text-5xl md:text-7xl font-heading font-bold mb-6 leading-tight">
+                            Transform Your <br> <span class="text-primary">Digital Presence</span>
+                        </h1>
+                        <p class="text-xl text-gray-300 mb-10 max-w-2xl">
+                            Expert web design, stunning graphics, and strategic digital solutions to help your business dominate the digital landscape.
+                        </p>
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                            <a href="#booking" class="bg-primary hover:bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg transition shadow-lg hover:shadow-xl">
+                                Start a Project
+                            </a>
+                            <a href="#portfolio" class="bg-transparent border-2 border-white hover:bg-white hover:text-dark text-white px-8 py-4 rounded-full font-bold text-lg transition">
+                                View Our Work
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Services Preview -->
+                <section class="py-20 bg-white">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-16">
+                            <h2 class="text-4xl font-heading font-bold text-dark mb-4">Our Core Services</h2>
+                            <p class="text-gray-600 max-w-2xl mx-auto">Everything you need to succeed online, under one roof.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            ${featuredServices.map(s => `
+                                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-xl transition group">
+                                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition">
+                                        <i class="fas ${s.icon} text-2xl text-primary group-hover:text-white transition"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold mb-3 text-dark">${s.title}</h3>
+                                    <p class="text-gray-600 mb-6">${s.desc}</p>
+                                    <a href="#booking?service=${s.title}" class="text-primary font-semibold hover:text-secondary inline-flex items-center">
+                                        Book Service <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                                    </a>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="text-center mt-12">
+                            <a href="#services" class="inline-block border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-full font-semibold transition">View All Services</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CTA Banner -->
+                <section class="py-16 bg-primary text-white">
+                    <div class="max-w-5xl mx-auto px-4 text-center">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to upgrade your digital footprint?</h2>
+                        <p class="text-xl text-blue-100 mb-8">Get in touch today and let's discuss your next big idea.</p>
+                        <a href="https://wa.me/${WA_NUMBER}?text=Hi%20FLASHFIXTECH,%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" class="bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-lg inline-flex items-center">
+                            <i class="fab fa-whatsapp text-2xl mr-2 text-green-500"></i> Chat on WhatsApp
+                        </a>
+                    </div>
+                </section>
+            `;
+            appContent.innerHTML = html;
+        }
+
+        // 2. ABOUT
+        function renderAbout() {
+            const html = `
+                <section class="py-20 bg-white slide-up">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="flex flex-col md:flex-row items-center gap-16">
+                            <div class="w-full md:w-1/2">
+                                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Our Team" class="rounded-2xl shadow-2xl">
+                            </div>
+                            <div class="w-full md:w-1/2">
+                                <h4 class="text-primary font-bold uppercase tracking-wide mb-2">About Us</h4>
+                                <h2 class="text-4xl font-heading font-bold text-dark mb-6">Innovative Solutions for the Digital Age</h2>
+                                <p class="text-gray-600 mb-6 leading-relaxed">
+                                    At FLASHFIXTECHSOLUTIONS, we believe that every brand deserves a world-class digital presence. Founded on the principles of creativity and technical excellence, we provide end-to-end digital services designed to convert visitors into loyal customers.
+                                </p>
+                                <p class="text-gray-600 mb-8 leading-relaxed">
+                                    Whether you need a cutting-edge website, eye-catching graphic design, or a strategic social media campaign, our dedicated team is here to bring your vision to life.
+                                </p>
+                                <div class="grid grid-cols-2 gap-6 mb-8">
+                                    <div>
+                                        <h4 class="text-3xl font-bold text-primary mb-1">100+</h4>
+                                        <p class="text-gray-500 text-sm font-medium">Projects Completed</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-3xl font-bold text-primary mb-1">50+</h4>
+                                        <p class="text-gray-500 text-sm font-medium">Happy Clients</p>
+                                    </div>
+                                </div>
+                                <a href="#contact" class="bg-dark text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+            appContent.innerHTML = html;
+        }
+
+        // 3. SERVICES
+        function renderServices() {
+            const db = getDB();
+            const html = `
+                <section class="py-20 bg-gray-50 slide-up">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-16">
+                            <h2 class="text-4xl font-heading font-bold text-dark mb-4">Our Services</h2>
+                            <p class="text-gray-600 max-w-2xl mx-auto">Comprehensive digital solutions. High quality, delivered on time.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            ${db.services.map(s => `
+                                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition duration-300 flex flex-col h-full">
+                                    <div class="w-16 h-16 bg-blue-50 text-primary rounded-2xl flex items-center justify-center mb-6 text-2xl">
+                                        <i class="fas ${s.icon}"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold mb-4 text-dark">${s.title}</h3>
+                                    <p class="text-gray-600 mb-8 flex-grow">${s.desc}</p>
+                                    <a href="#booking?service=${encodeURIComponent(s.title)}" class="mt-auto w-full text-center bg-gray-100 hover:bg-primary hover:text-white text-dark font-semibold py-3 rounded-xl transition">
+                                        Order This Service
+                                    </a>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </section>
+            `;
+            appContent.innerHTML = html;
+        }
+
+        // 4. PORTFOLIO
+        function renderPortfolio() {
+            const db = getDB();
+            // Get unique categories
+            const categories = ['All', ...new Set(db.portfolio.map(p => p.category))];
+            
+            let html = `
+                <section class="py-20 bg-white slide-up">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-12">
+                            <h2 class="text-4xl font-heading font-bold text-dark mb-4">Our Portfolio</h2>
+                            <p class="text-gray-600 max-w-2xl mx-auto">Explore some of our recent successful projects.</p>
+                        </div>
+                        
+                        <!-- Filters -->
+                        <div class="flex flex-wrap justify-center gap-4 mb-12" id="portfolio-filters">
+                            ${categories.map((c, i) => `
+                                <button class="filter-btn px-6 py-2 rounded-full font-medium ${i===0 ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'} transition" data-filter="${c}">${c}</button>
+                            `).join('')}
+                        </div>
+
+                        <!-- Gallery -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+                            ${db.portfolio.map(p => `
+                                <div class="portfolio-item group rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition duration-300" data-category="${p.category}">
+                                    <div class="relative img-hover-zoom h-64 bg-gray-200">
+                                        <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover">
+                                        <div class="absolute inset-0 bg-dark bg-opacity-70 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                            <a href="#booking?service=Inquiry regarding ${encodeURIComponent(p.title)}" class="bg-white text-dark px-6 py-2 rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition">I want something like this</a>
+                                        </div>
+                                    </div>
+                                    <div class="p-6 bg-white border border-t-0 border-gray-100 rounded-b-2xl">
+                                        <span class="text-xs font-bold text-primary uppercase tracking-wider mb-2 block">${p.category}</span>
+                                        <h3 class="text-xl font-bold text-dark mb-2">${p.title}</h3>
+                                        <p class="text-gray-600 text-sm line-clamp-2">${p.desc}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        ${db.portfolio.length === 0 ? '<p class="text-center text-gray-500 w-full py-10">No portfolio items available yet.</p>' : ''}
+                    </div>
+                </section>
+            `;
+            appContent.innerHTML = html;
+
+            // Attach filter logic
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const items = document.querySelectorAll('.portfolio-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    // Update active button state
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-primary', 'text-white');
+                        b.classList.add('bg-gray-100', 'text-gray-600');
+                    });
+                    e.target.classList.remove('bg-gray-100', 'text-gray-600');
+                    e.target.classList.add('bg-primary', 'text-white');
+
+                    // Filter items
+                    const filterValue = e.target.getAttribute('data-filter');
+                    items.forEach(item => {
+                        if (filterValue === 'All' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                            setTimeout(() => item.style.opacity = '1', 50);
+                        } else {
+                            item.style.opacity = '0';
+                            setTimeout(() => item.style.display = 'none', 300);
+                        }
+                    });
+                });
+            });
+        }
+
+        // 5. BUY WEBSITES
+        function renderWebsites() {
+            const db = getDB();
+            let html = `
+                <section class="py-20 bg-gray-50 slide-up min-h-screen">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-16">
+                            <h2 class="text-4xl font-heading font-bold text-dark mb-4">Websites for Sale</h2>
+                            <p class="text-gray-600 max-w-2xl mx-auto">Ready-to-launch premium websites. Buy today, start your business tomorrow.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            ${db.websitesForSale.map(w => `
+                                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 flex flex-col">
+                                    <div class="h-56 img-hover-zoom bg-gray-200">
+                                        <img src="${w.image}" alt="${w.title}" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="p-6 flex flex-col flex-grow">
+                                        <div class="flex justify-between items-start mb-4">
+                                            <h3 class="text-xl font-bold text-dark leading-tight w-2/3">${w.title}</h3>
+                                            <span class="bg-green-100 text-green-800 font-bold px-3 py-1 rounded-full text-sm">
+                                                ${formatCurrency(w.price)}
+                                            </span>
+                                        </div>
+                                        <p class="text-gray-600 text-sm mb-6 flex-grow">${w.desc}</p>
+                                        <button onclick="buyWebsite('${w.title}', '${w.price}')" class="w-full bg-dark hover:bg-primary text-white font-bold py-3 rounded-xl transition flex items-center justify-center">
+                                            <i class="fas fa-shopping-cart mr-2"></i> Purchase Now
+                                        </button>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        ${db.websitesForSale.length === 0 ? '<p class="text-center text-gray-500 w-full py-10">No websites currently listed for sale.</p>' : ''}
+                    </div>
+                </section>
+            `;
+            appContent.innerHTML = html;
+
+            window.buyWebsite = function(title, price) {
+                const message = `Hi FLASHFIXTECH, I am interested in purchasing the website: *${title}* listed for *KES ${price}*. Please let me know the next steps.`;
+                window.open(buildWaLink(message), '_blank');
+            }
+        }
+
+        // 6. BOOKING / ORDER PAGE
+        function renderBooking(query) {
+            const db = getDB();
+            let preSelectedService = '';
+            if (query && query.startsWith('service=')) {
+                preSelectedService = decodeURIComponent(query.split('=')[1]);
+            }
+
+            const html = `
+                <section class="py-20 bg-white slide-up">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="bg-gray-50 rounded-3xl p-8 md:p-12 shadow-lg border border-gray-100">
+                            <div class="text-center mb-10">
+                                <h2 class="text-3xl font-heading font-bold text-dark mb-4">Book a Service / Place an Order</h2>
+                                <p class="text-gray-600">Fill out the details below. We'll receive your order directly on WhatsApp for immediate processing.</p>
+                            </div>
+
+                            <form id="booking-form" class="space-y-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                                        <input type="text" id="b-name" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                        <input type="email" id="b-email" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Select Service *</label>
+                                    <select id="b-service" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition bg-white">
+                                        <option value="">-- Choose a Service --</option>
+                                        ${db.services.map(s => `
+                                            <option value="${s.title}" ${preSelectedService === s.title ? 'selected' : ''}>${s.title}</option>
+                                        `).join('')}
+                                        <option value="Custom Project" ${preSelectedService && !db.services.find(s=>s.title===preSelectedService) ? 'selected' : ''}>Custom Project / Other</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Project Details / Requirements *</label>
+                                    <textarea id="b-details" required rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="Tell us exactly what you need..."></textarea>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Attach Reference/Screenshot (Optional)</label>
+                                    <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-xl hover:border-primary transition bg-white">
+                                        <div class="space-y-1 text-center">
+                                            <i class="fas fa-cloud-upload-alt text-3xl text-gray-400 mb-3"></i>
+                                            <div class="flex text-sm text-gray-600 justify-center">
+                                                <label for="b-file" class="relative cursor-pointer bg-white rounded-md font-medium text-primary hover:text-secondary focus-within:outline-none">
+                                                    <span>Upload a file</span>
+                                                    <input id="b-file" name="b-file" type="file" class="sr-only" accept="image/*">
+                                                </label>
+                                            </div>
+                                            <p class="text-xs text-gray-500" id="file-name-display">PNG, JPG up to 5MB</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="w-full bg-primary hover:bg-secondary text-white font-bold py-4 rounded-xl transition shadow-lg flex justify-center items-center text-lg">
+                                    <i class="fab fa-whatsapp text-2xl mr-2"></i> Submit via WhatsApp
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            `;
+            appContent.innerHTML = html;
+
+            // Handle file display
+            let attachedBase64 = null;
+            const fileInput = document.getElementById('b-file');
+            fileInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    document.getElementById('file-name-display').innerText = file.name;
+                    compressImage(file, (base64) => {
+                        attachedBase64 = base64;
+                    });
+                }
+            });
+
+            // Handle submission
+            document.getElementById('booking-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('b-name').value;
+                const email = document.getElementById('b-email').value;
+                const service = document.getElementById('b-service').value;
+                const details = document.getElementById('b-details').value;
+
+                // Save locally for admin dashboard
+                const newOrder = {
+                    id: generateId(),
+                    name,
+                    email,
+                    service,
+                    details,
+                    date: new Date().toLocaleDateString(),
+                    hasAttachment: !!attachedBase64,
+                    attachment: attachedBase64,
+                    status: 'Pending'
+                };
+                
+                const currentDb = getDB();
+                currentDb.orders.push(newOrder);
+                saveDB(currentDb);
+
+                // Build WhatsApp message
+                let waText = `*New Order / Booking*\n\n`;
+                waText += `*Name:* ${name}\n`;
+                if(email) waText += `*Email:* ${email}\n`;
+                waText += `*Service:* ${service}\n`;
+                waText += `*Details:* ${details}\n\n`;
+                if(attachedBase64) waText += `_(Note: I have attached a reference image to my file, please check the admin panel for it)_\n`;
+                
+                window.open(buildWaLink(waText), '_blank');
+                
+                // Reset form
+                e.target.reset();
+                attachedBase64 = null;
+                document.getElementById('file-name-display').innerText = "PNG, JPG up to 5MB";
+                
+                alert("Order recorded locally. Redirecting to WhatsApp to complete submission.");
+            });
+        }
+
+        // 7. TESTIMONIALS
+        function renderTestimonials() {
+            const db = getDB();
+            const html = `
+                <section class="py-20 bg-gray-50 slide-up min-h-screen">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-16">
+                            <h2 class="text-4xl font-heading font-bold text-dark mb-4">Client Success Stories</h2>
+                            <p class="text-gray-600 max-w-2xl mx-auto">Don't just take our word for it. Here's what our clients have to say.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            ${db.testimonials.map(t => `
+                                <div class="bg-white p-8 rounded-2xl shadow-sm relative">
+                                    <i class="fas fa-quote-left text-4xl text-blue-100 absolute top-6 right-6 z-0"></i>
+                                    <div class="relative z-10">
+                                        <div class="flex text-accent mb-4">
+                                            ${Array(t.rating).fill('<i class="fas fa-star text-sm mr-1"></i>').join('')}
+                                        </div>
+                                        <p class="text-gray-700 italic mb-6">"${t.review}"</p>
+                                        <div class="flex items-center">
+                                            <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold mr-3">
+                                                ${t.name.charAt(0)}
+                                            </div>
+                                            <h4 class="font-bold text-dark">${t.name}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </section>
+            `;
+            appContent.innerHTML = html;
+        }
+
+        // 8. CONTACT
+        function renderContact() {
+            const html = `
+                <section class="py-20 bg-white slide-up min-h-screen flex items-center">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                            
+                            <!-- Contact Info -->
+                            <div>
+                                <h2 class="text-4xl font-heading font-bold text-dark mb-6">Get In Touch</h2>
+                                <p class="text-gray-600 mb-10 text-lg">Have a question or want to work together? We'd love to hear from you.</p>
+                                
+                                <div class="space-y-8">
+                                    <div class="flex items-start">
+                                        <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xl mr-4 flex-shrink-0">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-dark text-lg">WhatsApp Us</h4>
+                                            <p class="text-gray-600 mb-2">Fastest response time.</p>
+                                            <a href="https://wa.me/${WA_NUMBER}" target="_blank" class="text-primary font-semibold hover:underline">+254 705 305 516</a>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <div class="w-12 h-12 bg-blue-100 text-primary rounded-full flex items-center justify-center text-xl mr-4 flex-shrink-0">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-dark text-lg">Email Us</h4>
+                                            <p class="text-gray-600 mb-2">For detailed inquiries.</p>
+                                            <a href="mailto:info@flashfixtech.com" class="text-primary font-semibold hover:underline">info@flashfixtech.com</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quick Form -->
+                            <div class="bg-gray-50 p-8 rounded-3xl shadow-lg border border-gray-100">
+                                <h3 class="text-2xl font-bold mb-6 text-dark">Send a Message</h3>
+                                <form id="contact-form" class="space-y-4">
+                                    <input type="text" id="c-name" placeholder="Your Name" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary outline-none">
+                                    <textarea id="c-message" rows="5" placeholder="How can we help you?" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary outline-none"></textarea>
+                                    <button type="submit" class="w-full bg-dark hover:bg-gray-800 text-white font-bold py-4 rounded-xl transition">Send Message</button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            `;
+            appContent.innerHTML = html;
+
+            document.getElementById('contact-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('c-name').value;
+                const msg = document.getElementById('c-message').value;
+                const waText = `*New Inquiry from ${name}*\n\n${msg}`;
+                window.open(buildWaLink(waText), '_blank');
+                e.target.reset();
+            });
+        }
+
+        // 9. BLOG
+        function renderBlog() {
+            const db = getDB();
+            const html = `
+                <section class="py-20 bg-gray-50 slide-up min-h-screen">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-16">
+                            <h2 class="text-4xl font-heading font-bold text-dark mb-4">Latest Insights</h2>
+                            <p class="text-gray-600 max-w-2xl mx-auto">News, tips, and trends from the digital world.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            ${db.blog.map(b => `
+                                <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition">
+                                    <div class="p-8">
+                                        <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 block">${b.date}</span>
+                                        <h3 class="text-2xl font-bold text-dark mb-3 leading-snug">${b.title}</h3>
+                                        <p class="text-gray-600 mb-6">${b.snippet}</p>
+                                        <a href="#" class="text-primary font-bold hover:underline inline-flex items-center">Read More <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+                                    </div>
+                                </article>
+                            `).join('')}
+                        </div>
+                    </div>
+                </section>
+            `;
+            appContent.innerHTML = html;
+        }
+
+        // 10. ADMIN DASHBOARD (Protected)
+        function renderAdminLogin() {
+            // Simple front-end auth check via sessionStorage
+            if(sessionStorage.getItem('admin_auth') === 'true') {
+                window.location.hash = '#admin-dashboard';
+                return;
+            }
+
+            const html = `
+                <div class="min-h-[70vh] flex items-center justify-center bg-gray-50 px-4 slide-up">
+                    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 border border-gray-100 text-center">
+                        <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-lock text-2xl text-gray-600"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-dark mb-2">Admin Access</h2>
+                        <p class="text-gray-500 mb-8 text-sm">Enter PIN to manage your website content.</p>
+                        <form id="admin-login-form" class="space-y-4">
+                            <input type="password" id="admin-pin" placeholder="Enter PIN (try 0000)" required class="w-full text-center tracking-widest text-xl px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary outline-none">
+                            <button type="submit" class="w-full bg-dark text-white font-bold py-3 rounded-xl hover:bg-gray-800 transition">Unlock Dashboard</button>
+                        </form>
+                    </div>
+                </div>
+            `;
+            appContent.innerHTML = html;
+
+            document.getElementById('admin-login-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const pin = document.getElementById('admin-pin').value;
+                if(pin === '0000') { // Hardcoded demo pin
+                    sessionStorage.setItem('admin_auth', 'true');
+                    window.location.hash = '#admin-dashboard';
+                } else {
+                    alert('Incorrect PIN');
+                }
+            });
+        }
+
+        function renderAdminDashboard() {
+            if(sessionStorage.getItem('admin_auth') !== 'true') {
+                window.location.hash = '#admin';
+                return;
+            }
+
+            const db = getDB();
+
+            const html = `
+                <div class="flex min-h-screen bg-gray-100 slide-up">
+                    <!-- Admin Sidebar -->
+                    <aside class="w-64 bg-dark text-white hidden md:block">
+                        <div class="p-6">
+                            <h2 class="text-xl font-bold font-heading">Admin Panel</h2>
+                        </div>
+                        <nav class="mt-6">
+                            <button onclick="switchAdminTab('dashboard')" class="w-full text-left px-6 py-3 hover:bg-gray-800 focus:bg-gray-800 transition admin-tab-btn"><i class="fas fa-chart-line w-6"></i> Overview</button>
+                            <button onclick="switchAdminTab('orders')" class="w-full text-left px-6 py-3 hover:bg-gray-800 focus:bg-gray-800 transition admin-tab-btn"><i class="fas fa-shopping-bag w-6"></i> Orders / Bookings</button>
+                            <button onclick="switchAdminTab('portfolio')" class="w-full text-left px-6 py-3 hover:bg-gray-800 focus:bg-gray-800 transition admin-tab-btn"><i class="fas fa-images w-6"></i> Portfolio Setup</button>
+                            <button onclick="switchAdminTab('websites')" class="w-full text-left px-6 py-3 hover:bg-gray-800 focus:bg-gray-800 transition admin-tab-btn"><i class="fas fa-laptop-code w-6"></i> Sell Websites</button>
+                            <button onclick="logoutAdmin()" class="w-full text-left px-6 py-3 text-red-400 hover:bg-gray-800 transition mt-auto border-t border-gray-800 absolute bottom-0"><i class="fas fa-sign-out-alt w-6"></i> Logout</button>
+                        </nav>
+                    </aside>
+
+                    <!-- Admin Content Area -->
+                    <div class="flex-1 p-8 overflow-y-auto">
+                        <div class="flex justify-between items-center mb-8">
+                            <h1 class="text-3xl font-bold text-gray-800" id="admin-title">Dashboard Overview</h1>
+                            <div class="md:hidden">
+                                <button onclick="logoutAdmin()" class="bg-red-100 text-red-600 px-4 py-2 rounded-lg text-sm font-bold">Logout</button>
+                            </div>
+                        </div>
+
+                        <!-- Tab: Dashboard -->
+                        <div id="tab-dashboard" class="admin-tab">
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                                    <div class="text-gray-500 text-sm mb-1">Total Orders</div>
+                                    <div class="text-3xl font-bold text-primary">${db.orders.length}</div>
+                                </div>
+                                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                                    <div class="text-gray-500 text-sm mb-1">Portfolio Items</div>
+                                    <div class="text-3xl font-bold text-dark">${db.portfolio.length}</div>
+                                </div>
+                                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                                    <div class="text-gray-500 text-sm mb-1">Websites for Sale</div>
+                                    <div class="text-3xl font-bold text-dark">${db.websitesForSale.length}</div>
+                                </div>
+                                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                                    <div class="text-gray-500 text-sm mb-1">Services Listed</div>
+                                    <div class="text-3xl font-bold text-dark">${db.services.length}</div>
+                                </div>
+                            </div>
+                            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                                <h3 class="font-bold text-lg mb-4 text-dark">Welcome to FLASHFIXTECH Admin</h3>
+                                <p class="text-gray-600">Use the sidebar to navigate and manage your website content. All changes are saved locally in the browser.</p>
+                            </div>
+                        </div>
+
+                        <!-- Tab: Orders -->
+                        <div id="tab-orders" class="admin-tab hidden">
+                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50">
+                                        <tr>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Client</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Service</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                                        ${db.orders.length === 0 ? '<tr><td colspan="5" class="px-6 py-4 text-center text-gray-500">No orders yet.</td></tr>' : ''}
+                                        ${db.orders.map(o => `
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${o.date}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="text-sm font-medium text-gray-900">${o.name}</div>
+                                                    <div class="text-sm text-gray-500">${o.email || 'No email'}</div>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${o.service}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">${o.status}</span>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                    <button onclick="viewOrder('${o.id}')" class="text-primary hover:text-secondary">View Details</button>
+                                                </td>
+                                            </tr>
+                                        `).join('')}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Tab: Portfolio Setup -->
+                        <div id="tab-portfolio" class="admin-tab hidden space-y-8">
+                            <!-- Add Form -->
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                                <h3 class="font-bold text-lg mb-4">Add New Portfolio Item</h3>
+                                <form id="add-portfolio-form" class="space-y-4">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <input type="text" id="p-title" placeholder="Project Title" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none">
+                                        <input type="text" id="p-category" placeholder="Category (e.g. Graphic Design)" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none">
+                                    </div>
+                                    <textarea id="p-desc" placeholder="Project Description" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"></textarea>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Upload Image (from device)</label>
+                                        <input type="file" id="p-image" accept="image/*" required class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-primary hover:file:bg-blue-100">
+                                    </div>
+                                    <button type="submit" class="bg-primary text-white px-6 py-2 rounded-lg font-bold hover:bg-secondary transition">Save to Portfolio</button>
+                                </form>
+                            </div>
+                            
+                            <!-- List -->
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                ${db.portfolio.map(p => `
+                                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative group">
+                                        <img src="${p.image}" class="w-full h-40 object-cover">
+                                        <div class="p-4">
+                                            <h4 class="font-bold text-sm">${p.title}</h4>
+                                            <p class="text-xs text-gray-500">${p.category}</p>
+                                        </div>
+                                        <button onclick="deleteItem('portfolio', '${p.id}')" class="absolute top-2 right-2 bg-red-500 text-white w-8 h-8 rounded-full opacity-0 group-hover:opacity-100 transition shadow"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <!-- Tab: Websites -->
+                        <div id="tab-websites" class="admin-tab hidden space-y-8">
+                            <!-- Add Form -->
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                                <h3 class="font-bold text-lg mb-4">List a Website for Sale</h3>
+                                <form id="add-website-form" class="space-y-4">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <input type="text" id="w-title" placeholder="Website Name/Title" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none">
+                                        <input type="number" id="w-price" placeholder="Price in KES (e.g. 15000)" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none">
+                                    </div>
+                                    <textarea id="w-desc" placeholder="Features & Description" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"></textarea>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Upload Screenshot</label>
+                                        <input type="file" id="w-image" accept="image/*" required class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-primary hover:file:bg-blue-100">
+                                    </div>
+                                    <button type="submit" class="bg-green-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-green-700 transition">List for Sale</button>
+                                </form>
+                            </div>
+                            
+                            <!-- List -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                ${db.websitesForSale.map(w => `
+                                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex gap-4 relative group">
+                                        <img src="${w.image}" class="w-32 h-24 object-cover rounded-lg">
+                                        <div>
+                                            <h4 class="font-bold text-dark">${w.title}</h4>
+                                            <div class="text-green-600 font-bold text-sm">${formatCurrency(w.price)}</div>
+                                            <p class="text-xs text-gray-500 mt-1 line-clamp-2">${w.desc}</p>
+                                        </div>
+                                        <button onclick="deleteItem('websitesForSale', '${w.id}')" class="absolute top-2 right-2 text-red-400 hover:text-red-600 opacity-0 group-hover:opacity-100 transition"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Modal for Order Details -->
+                <div id="order-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+                    <div class="bg-white rounded-2xl max-w-lg w-full p-8 relative">
+                        <button onclick="closeOrderModal()" class="absolute top-4 right-4 text-gray-500 hover:text-dark"><i class="fas fa-times text-xl"></i></button>
+                        <h3 class="text-2xl font-bold mb-4" id="modal-title">Order Details</h3>
+                        <div id="modal-content" class="space-y-3 text-sm"></div>
+                        <div class="mt-6 flex justify-end space-x-3">
+                            <button onclick="closeOrderModal()" class="px-4 py-2 border rounded-lg text-gray-600">Close</button>
+                            <button id="modal-del-btn" class="px-4 py-2 bg-red-600 text-white rounded-lg">Delete Order</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            appContent.innerHTML = html;
+
+            // Define Admin specific functions in window scope to be called by onclick handlers in rendered HTML
+            window.switchAdminTab = function(tabName) {
+                document.querySelectorAll('.admin-tab').forEach(t => t.classList.add('hidden'));
+                document.getElementById(`tab-${tabName}`).classList.remove('hidden');
+                
+                const titles = {
+                    'dashboard': 'Dashboard Overview',
+                    'orders': 'Orders & Bookings',
+                    'portfolio': 'Manage Portfolio',
+                    'websites': 'Sell Websites'
+                };
+                document.getElementById('admin-title').innerText = titles[tabName];
+            }
+
+            window.logoutAdmin = function() {
+                sessionStorage.removeItem('admin_auth');
+                window.location.hash = '#home';
+            }
+
+            window.deleteItem = function(collection, id) {
+                if(confirm("Are you sure you want to delete this item?")) {
+                    const currentDb = getDB();
+                    currentDb[collection] = currentDb[collection].filter(i => i.id !== id);
+                    saveDB(currentDb);
+                    renderAdminDashboard(); // Re-render to update view
+                    // Ensure we stay on the right tab
+                    setTimeout(() => switchAdminTab(collection === 'websitesForSale' ? 'websites' : collection), 50);
+                }
+            }
+
+            window.viewOrder = function(id) {
+                const order = getDB().orders.find(o => o.id === id);
+                if(!order) return;
+
+                let contentHtml = `
+                    <p><strong>Name:</strong> ${order.name}</p>
+                    <p><strong>Email:</strong> ${order.email || 'N/A'}</p>
+                    <p><strong>Service:</strong> ${order.service}</p>
+                    <p><strong>Date:</strong> ${order.date}</p>
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                        <strong>Details:</strong><br/>
+                        <p class="whitespace-pre-wrap mt-2">${order.details}</p>
+                    </div>
+                `;
+
+                if(order.hasAttachment && order.attachment) {
+                    contentHtml += `
+                        <div class="mt-4">
+                            <strong>Attached Reference:</strong>
+                            <img src="${order.attachment}" class="mt-2 max-w-full rounded-lg border">
+                        </div>
+                    `;
+                }
+
+                document.getElementById('modal-content').innerHTML = contentHtml;
+                
+                document.getElementById('modal-del-btn').onclick = function() {
+                    deleteItem('orders', id);
+                    closeOrderModal();
+                };
+
+                document.getElementById('order-modal').classList.remove('hidden');
+            }
+
+            window.closeOrderModal = function() {
+                document.getElementById('order-modal').classList.add('hidden');
+            }
+
+            // Bind Portfolio Form
+            const pForm = document.getElementById('add-portfolio-form');
+            if(pForm) {
+                pForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const file = document.getElementById('p-image').files[0];
+                    if(!file) return alert("Image required");
+
+                    compressImage(file, (base64) => {
+                        const newItem = {
+                            id: generateId(),
+                            title: document.getElementById('p-title').value,
+                            category: document.getElementById('p-category').value,
+                            desc: document.getElementById('p-desc').value,
+                            image: base64
+                        };
+                        const currentDb = getDB();
+                        currentDb.portfolio.unshift(newItem); // Add to top
+                        saveDB(currentDb);
+                        pForm.reset();
+                        renderAdminDashboard();
+                        setTimeout(() => switchAdminTab('portfolio'), 50);
+                    });
+                });
+            }
+
+            // Bind Website Form
+            const wForm = document.getElementById('add-website-form');
+            if(wForm) {
+                wForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const file = document.getElementById('w-image').files[0];
+                    if(!file) return alert("Screenshot required");
+
+                    compressImage(file, (base64) => {
+                        const newItem = {
+                            id: generateId(),
+                            title: document.getElementById('w-title').value,
+                            price: document.getElementById('w-price').value,
+                            desc: document.getElementById('w-desc').value,
+                            image: base64
+                        };
+                        const currentDb = getDB();
+                        currentDb.websitesForSale.unshift(newItem);
+                        saveDB(currentDb);
+                        wForm.reset();
+                        renderAdminDashboard();
+                        setTimeout(() => switchAdminTab('websites'), 50);
+                    });
+                });
+            }
+        }
+
+        // --- INIT ---
+        router(); // Load initial route
+
+    </script>
+</body>
+</html>
